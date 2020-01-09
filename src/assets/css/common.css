@@ -1,0 +1,64 @@
+.d-flex {display: flex;}
+.d-none {display: none;}
+/* padding */
+.pl8 {padding-left: 8px;}
+.pl15 {padding-left: 15px;}
+/* fontSize */
+.fz12 {font-size: 12px;}
+.fz14 {font-size: 14px;}
+.fz16 {font-size: 16px;}
+.fz18 {font-size: 18px;}
+.fz20 {font-size: 20px;}
+.fz26 {font-size: 26px;}
+.fz30 {font-size: 30px;}
+/* color */
+.col-209 {color: #2095F2;}
+.col-999 {color: #999999;}
+.col-33 {color: #333333;}
+.col-66 {color: #666666;}
+.col-2f {color: #2095F2;}
+.col-ff {color: #ffffff;}
+.col-f4d {color: #FF4D4D;}
+/* 盒子类型 */
+.flex-justify-between {justify-content: space-between;}
+.flex-column {flex-direction: column;}
+.flex-align-center {align-items: center;}
+.bg-col-2f {background-color: #2095F2;}
+.bg-col-ff {background-color: #ffffff;}
+.bg-col-f2 {background-color: #f2f2f2;}
+.font500 {font-weight: 500;}
+.font600 {font-weight: 600;}
+.font-wgh {font-weight: bold;}
+.fmg-lef {margin-left: -20px;}
+/* margin */
+.mt-27 { margin-top: 27px !important; }
+.mg-lef {margin-left: 25px;}
+.mg-lef15 {margin-left: 15px;}
+.mg-lef45 {margin-left: 45px;}
+.mg-rgt15 {margin-right: 15px;}
+.mg-rgt40 {margin-right: 40px;}
+.mg-btm10 {margin-bottom: 10px;}
+.mg-btm15 {margin-bottom: 15px;}
+.mg-btm25 {margin-bottom: 25px;}
+.mg-btm18 {margin-bottom: 18px;}
+.mg-btm20 {margin-bottom: 20px;}
+.pd-updown {margin: 5px 0;}
+.cs-pit {cursor: pointer;}
+/*圆角*/
+.bor-rds {border-radius: 50%;}
+/*文本对齐方式*/
+.text-lef {text-align: left;}
+.text-ctr {text-align: center;}
+.text-rgt {text-align: right;}
+.wht-spc {white-space: nowrap;}
+.font-nrl {font-style:normal}
+.line-ht {line-height: 1.5}
+/*定位*/
+.pr {position: relative;}
+.pa {position: absolute;}
+.bb:after {position: absolute;box-sizing: border-box;-webkit-transform-origin: center;transform-origin: center;content: " ";pointer-events: none;top: auto;right: 0;bottom: 0;left: 0;border-bottom: 1px solid #eee;-webkit-transform: scaleY(.5);transform: scaleY(.5);}
+.ws-np{white-space: nowrap;}
+/* 超出显示省略号 */
+.ellipsis-3 {display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3;overflow: hidden;}
+.ellipsis-2 {display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2;overflow: hidden;}
+.ellipsis-1 {white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
