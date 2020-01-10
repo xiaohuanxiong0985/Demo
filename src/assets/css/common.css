@@ -4,7 +4,7 @@
 .pl8 {padding-left: 8px;}
 .pl15 {padding-left: 15px;}
 /* fontSize */
-.fz12 {font-size: 12px;}
+.fz12 {font-size: 24px;}
 .fz14 {font-size: 14px;}
 .fz16 {font-size: 16px;}
 .fz18 {font-size: 18px;}
@@ -19,6 +19,7 @@
 .col-2f {color: #2095F2;}
 .col-ff {color: #ffffff;}
 .col-f4d {color: #FF4D4D;}
+.col-279 {color: #279AD3;}
 /* 盒子类型 */
 .flex-justify-between {justify-content: space-between;}
 .flex-column {flex-direction: column;}
@@ -31,9 +32,11 @@
 .font-wgh {font-weight: bold;}
 .fmg-lef {margin-left: -20px;}
 /* margin */
-.mt-27 { margin-top: 27px !important; }
+.mt-14 { margin-top: 14px !important; }
+.mt-27 { margin-top: 54px !important; }
 .mg-lef {margin-left: 25px;}
 .mg-lef15 {margin-left: 15px;}
+.mg-lef5 {margin-left: 5px;}
 .mg-lef45 {margin-left: 45px;}
 .mg-rgt15 {margin-right: 15px;}
 .mg-rgt40 {margin-right: 40px;}
