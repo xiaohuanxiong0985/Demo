@@ -8,9 +8,11 @@
       :type="item.type"
       :maxlength="item.max"
       :right-icon="item.icon"
+      :value="formData[item.prop]"
       :placeholder="item.placeholder || getPlaceholder(item)"
       @input="eventTel(item.prop, $event)"
-      @click="jump(item)"
+      @click="handleClick(item, 'cell')"
+      @click-right-icon="handleClick(item, 'icon')"
       class="chrray-login-input">
       <van-button
         v-if="item.slot"
@@ -18,13 +20,20 @@
         color="#999999"
         slot="button"
         size="small"
+        @click="handleClick(item, 'btn')"
         type="primary">{{ item.btnText }}</van-button>
     </van-field>
     <van-popup
-      v-model="show"
-      position="bottom"
-      :style="{ height: '40%' }">
-      <!--        <van-picker :columns="items.text"></van-picker>-->
+      v-for="(item, index) in columns"
+      :key="'ss' + index"
+      v-model="item.show"
+      position="bottom">
+      <van-picker
+        :columns="item.arr"
+        show-toolbar
+        @cancel="onCancel(item)"
+        @confirm="onConfirm">
+      </van-picker>
     </van-popup>
   </div>
 </template>
@@ -64,11 +73,26 @@ export default {
       this.$emit('event', type, value);
     },
     //  点击事件
-    jump (value) {
-      if (value.link) {
-        this.show = true;
-        this.$emit('jump', value);
-      }
+    handleClick (item, type) {
+      // if (item.link) {
+      this.$emit('handleClick', item, type);
+      // }
+    },
+    //  取消事件
+    onCancel (item) {
+      item.show = false;
+    },
+    //  选择器确认事件
+    onConfirm (value, index) {
+      this.$emit('onConfirm', value, index);
+    },
+    //  输入框按钮点击
+    btnClick (item) {
+      this.$emit('btnClick', item);
+    },
+    //  右侧图标点击
+    rightIcon (item) {
+      this.$emit('rightIcon', item);
     },
     getPlaceholder (row) {
       let placeholder;

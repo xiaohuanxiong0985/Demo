@@ -13,7 +13,9 @@
             :formData="formData"
             :columns="columns"
             @event="eventChange"
-            @jump="onEvent"></selectValue>
+            @handleClick="handleClick"
+            @btnClick="btnClick">
+          </selectValue>
           <van-button type="default" block class="mt-27" @click="jumpCode">获取验证码</van-button>
         </van-cell-group>
         <div class="mt-27 d-flex flex-justify-between">
@@ -38,8 +40,15 @@ export default {
   data () {
     return {
       columns: [
-        { prop: '111', text: '1111', show: false },
-        { prop: 'address', text: '2222', show: false }
+        {
+          prop: 'address',
+          arr: [
+            { text: '测试一', value: 1 },
+            { text: '测试二', value: 2 },
+            { text: '测试三', value: 3 }
+          ],
+          show: false
+        },
       ],
       formData: {
         phone: '',
@@ -90,6 +99,7 @@ export default {
     },
     //  获取验证码
     jumpCode () {
+      console.log(this.formData)
       let that = this;
       if (that.value !== '') {
         this.$router.push({
@@ -121,15 +131,24 @@ export default {
       this.formData[type] = val;
     },
     //  点击框
-    onEvent (val) {
-      console.log(val);
-      let a = this.columns;
-      a.map((item) => {
-        if (val.prop === item.prop) {
-          console.log(val.prop);
-          console.log(item.prop);
-        }
-      });
+    handleClick (item, type) {
+      let key = item.prop;
+      switch (true) {
+        case key === 'address' && type === 'cell':
+          console.log(111)
+          break;
+        case key === 'yzm' && type === 'btn':
+          console.log(2222);
+          break;
+      }
+    },
+    btnClick (item) {
+      let key = item.prop;
+      switch (key) {
+        case 'yzm':
+          console.warn('验证码');
+          break;
+      }
     },
     //  图标切换
     icon (pass) {
