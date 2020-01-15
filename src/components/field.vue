@@ -5,29 +5,41 @@
       :key="index"
       :is-link="item.link"
       :readonly="item.readonly"
+      :type="item.type"
+      :maxlength="item.max"
+      :right-icon="item.icon"
       :placeholder="item.placeholder || getPlaceholder(item)"
-      @input="eventTel"
-      @click="show = true"
+      @input="eventTel(item.prop, $event)"
+      @click="jump(item)"
       class="chrray-login-input">
+      <van-button
+        v-if="item.slot"
+        plain
+        color="#999999"
+        slot="button"
+        size="small"
+        type="primary">{{ item.btnText }}</van-button>
     </van-field>
     <van-popup
       v-model="show"
       position="bottom"
-      :style="{ height: '30%' }">
-      <van-picker
-        :columns="columns">
-      </van-picker>
+      :style="{ height: '40%' }">
+      <!--        <van-picker :columns="items.text"></van-picker>-->
     </van-popup>
   </div>
 </template>
 
 <script>
-import { Field, Popup, picker } from 'vant';
+import { Field, Popup, Picker, Button } from 'vant';
 export default {
   props: {
     dataList: {
       type: Array,
       default: () => []
+    },
+    formData: {
+      type: Object,
+      default: () => {}
     },
     columns: {
       type: Array,
@@ -36,17 +48,27 @@ export default {
   },
   data () {
     return {
-      show: false
+      show: false,
+      value: ''
     };
   },
   components: {
     [Field.name]: Field,
     [Popup.name]: Popup,
-    [picker.name]: picker
-},
+    [Picker.name]: Picker,
+    [Button.name]: Button
+  },
   methods: {
-    eventTel (value) {
-      this.$emit('event', value);
+    //  输入事件
+    eventTel (type, value) {
+      this.$emit('event', type, value);
+    },
+    //  点击事件
+    jump (value) {
+      if (value.link) {
+        this.show = true;
+        this.$emit('jump', value);
+      }
     },
     getPlaceholder (row) {
       let placeholder;
