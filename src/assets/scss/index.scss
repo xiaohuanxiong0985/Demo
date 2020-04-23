@@ -1,0 +1,21 @@
+@import "reset";
+@import "common";
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: $light;
+  }
+  .title {
+    color: $dark;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: $dark;
+  }
+  .title {
+    color: $light;
+  }
+  article{
+    color:rgba(255,255,255,.86);
+  }
+}

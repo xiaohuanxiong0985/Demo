@@ -12,7 +12,7 @@ module.exports = {
     'postcss-pxtorem': {
       rootValue: 75,
       propList: ['*'],
-      selectorBlackList: ['van-']
+      selectorBlackList: ['van-', 'el-']
     }
   }
 };

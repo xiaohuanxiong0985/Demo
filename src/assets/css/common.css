@@ -3,36 +3,51 @@
 /* padding */
 .pl8 {padding-left: 8px;}
 .pl15 {padding-left: 15px;}
+.pad30 {padding: 0 30px;}
 /* fontSize */
 .fz12 {font-size: 24px;}
 .fz14 {font-size: 14px;}
 .fz16 {font-size: 16px;}
 .fz18 {font-size: 18px;}
 .fz20 {font-size: 20px;}
+.fz24 {font-size: 24px;}
 .fz26 {font-size: 26px;}
+.fz28 {font-size: 28px;}
 .fz30 {font-size: 30px;}
+.fz32 {font-size: 32px;}
+.fz48 {font-size: 48px;}
 /* color */
 .col-209 {color: #2095F2;}
-.col-999 {color: #999999;}
+.col-99 {color: #999999;}
+.col-00 {color: #000000;}
 .col-33 {color: #333333;}
+.col-2b {color: #22B1EF;}
 .col-66 {color: #666666;}
 .col-2f {color: #2095F2;}
 .col-ff {color: #ffffff;}
 .col-f4d {color: #FF4D4D;}
 .col-279 {color: #279AD3;}
+.col-e0 {color: #e02020;}
+.col-cc {color: #cccccc;}
+.col-fa {color: #FA4343;}
 /* 盒子类型 */
 .flex-justify-between {justify-content: space-between;}
 .flex-column {flex-direction: column;}
 .flex-align-center {align-items: center;}
+.flex-wrap {flex-wrap: wrap;}
+/* 背景颜色 */
 .bg-col-2f {background-color: #2095F2;}
 .bg-col-ff {background-color: #ffffff;}
 .bg-col-f2 {background-color: #f2f2f2;}
+.bg-col-2b {background-color: #22B1EF;}
 .font500 {font-weight: 500;}
 .font600 {font-weight: 600;}
 .font-wgh {font-weight: bold;}
 .fmg-lef {margin-left: -20px;}
+.flex { flex: 1;}
 /* margin */
 .mt-14 { margin-top: 14px !important; }
+.mt-25 { margin-top: 25px; }
 .mt-27 { margin-top: 54px !important; }
 .mg-lef {margin-left: 25px;}
 .mg-lef15 {margin-left: 15px;}
@@ -45,12 +60,15 @@
 .mg-btm25 {margin-bottom: 25px;}
 .mg-btm18 {margin-bottom: 18px;}
 .mg-btm20 {margin-bottom: 20px;}
+.mg-btm30 {margin-bottom: 30px;}
 .pd-updown {margin: 5px 0;}
+.mbt-20 {margin: 10px 0;}
 .cs-pit {cursor: pointer;}
 /*圆角*/
 .bor-rds {border-radius: 50%;}
 /*文本对齐方式*/
 .text-lef {text-align: left;}
+.text-left {text-align: left;}
 .text-ctr {text-align: center;}
 .text-rgt {text-align: right;}
 .wht-spc {white-space: nowrap;}
