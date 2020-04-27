@@ -3,7 +3,7 @@ const resolve = dir => path.join(__dirname, dir);
 const BASE_URL = process.env.NODE_ENV === 'procution' ? './' : '/';
 // const CompressionWebpackPlugin = require('compression-webpack-plugin');
 module.exports = {
-  lintOnSave: true,
+  lintOnSave: false,
   publicPath: './',
   chainWebpack: config => {
     config.name('香辣脆小浣熊');
@@ -14,7 +14,7 @@ module.exports = {
   },
   productionSourceMap: false,
   devServer: {
-    proxy: 'http://192.168.31.32:8080'
+    // proxy: 'http://192.168.31.32:8080'
   },
   // configureWebpack: config => {
   //   let plugins = [
