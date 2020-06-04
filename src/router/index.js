@@ -10,7 +10,7 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, form, next) => {
-  const BASE_URL = process.env.NODE_ENV === 'procution' ? '/demo1/' : '/';
+  const BASE_URL = process.env.NODE_ENV === 'production' ? '/demo1/' : '/';
   console.log(BASE_URL)
   next();
 });
