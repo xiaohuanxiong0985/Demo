@@ -4,7 +4,7 @@ const BASE_URL = process.env.NODE_ENV === 'procution' ? '/demo1/' : '/';
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
 module.exports = {
   lintOnSave: false,
-  publicPath: BASE_URL,
+  publicPath: '/demo1/',
   chainWebpack: config => {
     config.name('香辣脆小浣熊');
     config.resolve.alias
