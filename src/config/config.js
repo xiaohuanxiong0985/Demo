@@ -23,11 +23,11 @@ module.exports = {
   },
   //  服务器配置
   prod: {
-    host: '39.98.156.129', // ip
+    host: '106.12.152.73', // ip
     port: 22, // 端口
     username: 'root', // 登录服务器的账号
-    password: 'cp906311...', // 登录服务器的账号
-    path: '/website/print'// 发布至静态服务器的项目路径
+    password: 'play933364', // 登录服务器的账号
+    path: 'xxx'// 发布至静态服务器的项目路径
   },
   test: {
     host: 'XX.XX.XX.XX',

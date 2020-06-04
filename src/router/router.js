@@ -1,8 +1,7 @@
 export default [
   {
     path: '/',
-    name: 'index',
-    component: () => import('../views/user')
+    component: () => import('../views/Countdown/index')
   },
   {
     path: '/user',
