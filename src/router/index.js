@@ -10,6 +10,8 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, form, next) => {
+  const BASE_URL = process.env.NODE_ENV === 'procution' ? '/demo1/' : '/';
+  console.log(BASE_URL)
   next();
 });
 //  cqgas-6003ffbc-ace9-4b8c-abca-ed89ae97809e
