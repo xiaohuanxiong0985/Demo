@@ -5,13 +5,11 @@ import routes from './router';
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-  // mode: 'history',
+  mode: process.env.NODE_ENV === 'production' ? 'hash' : 'history',
   routes
 });
 
 router.beforeEach((to, form, next) => {
-  const BASE_URL = process.env.NODE_ENV === 'production' ? '/demo1/' : '/';
-  console.log(BASE_URL)
   next();
 });
 //  cqgas-6003ffbc-ace9-4b8c-abca-ed89ae97809e
