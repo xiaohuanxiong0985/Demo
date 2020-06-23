@@ -20,6 +20,10 @@ export default [
     component: () => import('../views/form/form')
   },
   {
+    path: '/element-table-expand',
+    component: () => import('../views/element-table-expand')
+  },
+  {
     path: '*',
     component: () => import('../views/404.vue')
   }
