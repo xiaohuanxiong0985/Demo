@@ -5,7 +5,8 @@ import routes from './router';
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-  mode: process.env.NODE_ENV === 'production' ? 'hash' : 'history',
+  // mode: process.env.NODE_ENV === 'production' ? 'hash' : 'history',
+  mode: 'history',
   routes
 });
 
