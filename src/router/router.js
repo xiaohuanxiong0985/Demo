@@ -1,11 +1,11 @@
 export default [
   {
     path: '/',
-    component: () => import('../views/Countdown/index')
+    component: () => import('../views/home')
   },
   {
     path: '/user',
-    component: () => import('../views/home')
+    component: () => import('../views/user')
   },
   {
     path: '/view',
