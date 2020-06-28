@@ -25,7 +25,7 @@ export default [
   },
   {
     path: '/loading',
-    component: () => import('../views/loading/index'),
+    component: () => import('../views/index'),
     children: [
       {
         path: 'demo1',
@@ -51,12 +51,20 @@ export default [
   },
   {
     path: '/background',
-    component: () => import('../views/background/index'),
+    component: () => import('../views/index'),
     children: [
       {
         path: 'demo1',
         component: () => import('../views/background/demo1'),
       }
+    ]
+  },
+  {
+    path: '/button',
+    component: () => import('../views/index'),
+    children: [
+      { path: 'demo1', component: () => import('../views/button/demo1') },
+      { path: 'demo2', component: () => import('../views/button/demo2') },
     ]
   },
   {
