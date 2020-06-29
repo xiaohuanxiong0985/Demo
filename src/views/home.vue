@@ -1,21 +1,48 @@
 <template>
   <div class="page-main">
     <div class="flex">
-      <xhx-button class="item" :url="'/loading/demo1'">loading1</xhx-button>
-      <xhx-button class="item" :url="'/loading/demo2'">loading2</xhx-button>
-      <xhx-button class="item" :url="'/loading/demo3'">loading3</xhx-button>
-      <xhx-button class="item" :url="'/loading/demo4'">loading4</xhx-button>
-      <xhx-button class="item" :url="'/loading/demo5'">loading5</xhx-button>
-      <xhx-button class="item" :url="'/background/demo1'">background1</xhx-button>
+      <xhx-button class="item" :type="'demo1'" :url="'/loading/demo1'">loading1</xhx-button>
+      <xhx-button class="item" :type="'demo1'" :url="'/loading/demo2'">loading2</xhx-button>
+      <xhx-button class="item" :type="'demo1'" :url="'/loading/demo3'">loading3</xhx-button>
+      <xhx-button class="item" :type="'demo1'" :url="'/loading/demo4'">loading4</xhx-button>
+      <xhx-button class="item" :type="'demo1'" :url="'/loading/demo5'">loading5</xhx-button>
+    </div>
+    <div class="flex">
+      <xhx-button
+        class="item"
+        type="demo2"
+        title="渐变背景"
+        url="/background/demo1" />
+      <xhx-button
+        class="item"
+        type="demo2"
+        title="日环食"
+        colorType="orange"
+        url="/background/demo2" />
+      <xhx-button
+        class="item"
+        type="demo2"
+        title="待定"
+        colorType="green"
+        url="/background/demo2" />
+      <xhx-button
+        class="item"
+        type="demo2"
+        title="待定"
+        colorType="red"
+        url="/background/demo2" />
     </div>
   </div>
 </template>
 
 <script>
-import xhxButton from './button/demo1'
+import xhxButton from './button/index'
 export default {
   components: {
     xhxButton
+  },
+  methods: {
+    //
   }
 }
 </script>
@@ -30,6 +57,9 @@ export default {
     display: grid;
     grid-gap: 20px 0;
     grid-template-columns: repeat(auto-fill, 25%);
+    +.flex {
+      padding-top: 40px;
+    }
     .item {
       justify-self: center;
     }

@@ -11,13 +11,14 @@ export default {
     url: {
       type: String,
       default: '/'
-    }
+    },
   }
 }
 </script>
 
 <style scoped lang="scss">
 .button {
+  display: inline-block;
   position: relative;
   width: 200px;
   height: 60px;
