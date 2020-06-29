@@ -1,6 +1,6 @@
 const path = require('path');
 const resolve = dir => path.join(__dirname, dir);
-const BASE_URL = process.env.NODE_ENV === 'production' ? '/demo1/' : '/';
+const BASE_URL = process.env.NODE_ENV === 'production' ? '/' : '/';
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
 module.exports = {
   lintOnSave: false,
