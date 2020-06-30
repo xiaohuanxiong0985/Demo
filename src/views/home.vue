@@ -22,9 +22,9 @@
       <xhx-button
         class="item"
         type="demo2"
-        title="待定"
+        title="视差滚动"
         colorType="green"
-        url="/background/demo2" />
+        url="/background/demo3" />
       <xhx-button
         class="item"
         type="demo2"

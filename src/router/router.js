@@ -61,6 +61,10 @@ export default [
         path: 'demo2',
         component: () => import('../views/background/demo2'),
       },
+      {
+        path: 'demo3',
+        component: () => import('../views/background/demo3'),
+      },
     ]
   },
   {
