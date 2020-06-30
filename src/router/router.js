@@ -72,6 +72,10 @@ export default [
     ]
   },
   {
+    path: '/grid',
+    component: () => import('../views/grid')
+  },
+  {
     path: '*',
     component: () => import('../views/404.vue')
   }

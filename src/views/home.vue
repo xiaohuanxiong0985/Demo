@@ -1,13 +1,13 @@
 <template>
   <div class="page-main">
-    <div class="flex">
+    <div class="row">
       <xhx-button class="item" :type="'demo1'" :url="'/loading/demo1'">loading1</xhx-button>
       <xhx-button class="item" :type="'demo1'" :url="'/loading/demo2'">loading2</xhx-button>
       <xhx-button class="item" :type="'demo1'" :url="'/loading/demo3'">loading3</xhx-button>
       <xhx-button class="item" :type="'demo1'" :url="'/loading/demo4'">loading4</xhx-button>
       <xhx-button class="item" :type="'demo1'" :url="'/loading/demo5'">loading5</xhx-button>
     </div>
-    <div class="flex">
+    <div class="row">
       <xhx-button
         class="item"
         type="demo2"
@@ -53,11 +53,11 @@ export default {
   min-height: 100vh;
   background-color: #000;
   box-sizing: border-box;
-  .flex {
+  .row {
     display: grid;
     grid-gap: 20px 0;
-    grid-template-columns: repeat(auto-fill, 25%);
-    +.flex {
+    grid-template-columns: repeat(4, 1fr);
+    +.row {
       padding-top: 40px;
     }
     .item {
