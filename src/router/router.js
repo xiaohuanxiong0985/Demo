@@ -76,8 +76,33 @@ export default [
     ]
   },
   {
+    path: '/patterns',
+    component: () => import('../views/index'),
+    children: [
+      { path: 'demo1', component: () => import('../views/design_patterns/demo1/demo1.vue') },
+    ]
+  },
+  {
+    path: '/canvas',
+    component: () => import('../views/index'),
+    children: [
+      { path: 'demo1', component: () => import('../views/canvas/demo1/demo1.vue') },
+    ]
+  },
+  {
+    path: '/layout',
+    component: () => import('../views/index'),
+    children: [
+      { path: 'demo1', component: () => import('../views/layout/demo1/index.vue') }
+    ]
+  },
+  {
     path: '/grid',
     component: () => import('../views/grid')
+  },
+  {
+    path: '/test',
+    component: () => import('../views/test')
   },
   {
     path: '*',

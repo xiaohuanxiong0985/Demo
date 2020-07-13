@@ -1,7 +1,8 @@
 @import "reset";
 @import "common";
 @media (prefers-color-scheme: light) {
-  body {
+  #app.light {
+    transition: all .5s ease-in;
     background-color: $light;
   }
   .title {
@@ -9,7 +10,8 @@
   }
 }
 @media (prefers-color-scheme: dark) {
-  body {
+  #app.dark {
+    transition: all .5s ease-in;
     background-color: $dark;
   }
   .title {

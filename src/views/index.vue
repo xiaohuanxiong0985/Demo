@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "index"
+  name: "index",  //  路由
 }
 </script>
 

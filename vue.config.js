@@ -1,5 +1,5 @@
 const path = require('path');
-const resolve = dir => path.join(__dirname, dir);
+const resolve = dir => path.resolve(__dirname, dir);
 const BASE_URL = process.env.NODE_ENV === 'production' ? '/' : '/';
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
 module.exports = {
@@ -14,6 +14,7 @@ module.exports = {
   },
   productionSourceMap: false,
   devServer: {
+    port: 4399
     // proxy: 'http://192.168.31.32:8080'
   },
   //  开启压缩
