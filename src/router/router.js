@@ -80,6 +80,10 @@ export default [
     component: () => import('../views/grid')
   },
   {
+    path: '/bilibili',
+    component: () => import('@/views/bilibili/autumn')
+  },
+  {
     path: '*',
     component: () => import('../views/404.vue')
   }

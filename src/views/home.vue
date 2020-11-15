@@ -32,6 +32,7 @@
         colorType="red"
         url="/background/demo2" />
     </div>
+    <button @click="handleClick">点击</button>
   </div>
 </template>
 
@@ -41,8 +42,14 @@ export default {
   components: {
     xhxButton
   },
+  mounted() {
+    console.log(this)
+    console.log($)
+  },
   methods: {
-    //
+    handleClick() {
+      console.log(window.jq)
+    }
   }
 }
 </script>
