@@ -23,3 +23,31 @@ export function GetDateTimeToString (date_, format) {
   }
   // return year + '/' + month + '/' + day + ' ' + hours + ':' + mins;
 };
+
+//  对发布订阅模式进行封装
+class Observe {
+  constructor() {
+    this.events = {}
+  }
+  //  订阅方法
+  on(key, cd) {
+    if (!this.events[key]) this.events[key] = [];
+    this.events[key].push(cd);
+  }
+  //  发布方法
+  emmit(key, value) {
+    if (this.events[key].length) {
+      const events = this.events[key]
+      events.forEach(v => v.call(this, value))
+    }
+  }
+  //  删除订阅者
+  remove(key) {
+    this.events.forEach(v => {
+      if (v === key) {
+        delete this.events[v]
+      }
+    })
+  }
+}
+export const observeSession = new Observe()

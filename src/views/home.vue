@@ -58,7 +58,6 @@ export default {
   padding: 15px;
   min-width: 100vw;
   min-height: 100vh;
-  background-color: #000;
   box-sizing: border-box;
   .row {
     display: grid;
