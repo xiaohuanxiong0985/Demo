@@ -105,6 +105,14 @@ export default [
     component: () => import('@/views/bilibili/autumn')
   },
   {
+    path: '/mimicry',
+    component: () => import('@/views/bilibili/mimicry')
+  },
+  {
+    path: '/dashboard',
+    component: () => import('@/views/bilibili/dashboard.vue')
+  },
+  {
     path: '/test',
     component: () => import('../views/test')
   },

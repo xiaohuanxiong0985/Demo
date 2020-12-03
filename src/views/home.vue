@@ -28,9 +28,9 @@
       <xhx-button
         class="item"
         type="demo2"
-        title="待定"
+        title="哔哩哔哩"
         colorType="red"
-        url="/background/demo2" />
+        url="/bilibili" />
     </div>
     <button @click="handleClick">点击</button>
   </div>
