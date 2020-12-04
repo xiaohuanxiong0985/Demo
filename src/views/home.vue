@@ -43,12 +43,14 @@ export default {
     xhxButton
   },
   mounted() {
-    console.log(this)
-    console.log($)
+    // console.log(this)
+    // console.log($)
   },
   methods: {
     handleClick() {
-      console.log(window.jq)
+      this.$router.push({
+        path: '/dashboard'
+      })
     }
   }
 }
