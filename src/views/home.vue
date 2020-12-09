@@ -34,7 +34,7 @@
       <xhx-button
         class="item"
         type="demo2"
-        title="yibiap"
+        title="仪表盘"
         colorType="red"
         url="/dashboard" />
     </div>
