@@ -34,8 +34,8 @@
       <xhx-button
         class="item"
         type="demo2"
-        title="canvas仪表盘"
-        colorType="green"
+        title="yibiap"
+        colorType="red"
         url="/dashboard" />
     </div>
   </div>
