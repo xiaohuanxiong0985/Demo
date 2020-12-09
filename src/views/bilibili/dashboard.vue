@@ -24,7 +24,7 @@
         gauge.watchs();
         setTimeout(() => {
           // let arr = [80, 81, 80, 50, 83, 24, 83, 32, 85, 86];
-          let arr = [90, 20, 50, 10, 80, 81, 83, 80, 80, 81]
+          let arr = [40, 20, 50, 10, 80, 81, 83, 80, 80, 81]
           arr.forEach((v, i) => {
             setTimeout(() => {
               gauge.update(v)

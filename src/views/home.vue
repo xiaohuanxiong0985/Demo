@@ -31,8 +31,13 @@
         title="哔哩哔哩"
         colorType="red"
         url="/bilibili" />
+      <xhx-button
+        class="item"
+        type="demo2"
+        title="canvas仪表盘"
+        colorType="green"
+        url="/dashboard" />
     </div>
-    <button @click="handleClick">点击</button>
   </div>
 </template>
 
@@ -47,11 +52,6 @@ export default {
     // console.log($)
   },
   methods: {
-    handleClick() {
-      this.$router.push({
-        path: '/dashboard'
-      })
-    }
   }
 }
 </script>

@@ -40,7 +40,6 @@ class Gauge {
       color: [[54, 63, 255], [134, 37, 168],[252, 3, 44]],
       options: 0.6,
     }
-    this.mergeOptions(this.properties, options);
     this.tirm = null;
     this.maxVal = 100;
     this.canvas = options.canvas;
@@ -49,46 +48,6 @@ class Gauge {
     this.deg1 = (Math.PI * 12) / (9 * this.properties.lineNums);
     this.test = 240 / this.maxVal; //  最大值60 最大度数300
     return this;
-  }
-  mergeOptions(defaultOpt, options) {
-    const list = Object.keys(defaultOpt);
-    list.forEach(v => {
-      this[v] = typeof options[v] === 'undefined' ? defaultOpt[v] : options[v];
-    })
-  }
-  //  绘制已选进度
-  gradientColoArr() {
-    const { colorLineNums } = this.properties;
-    let colorArr = [];
-    for (let i  = 0 ; i < colorLineNums; i++) {
-
-    }
-  }
-  getRGBDiff(r1, r2) {
-    const obj = {
-      sR: (r2[0] - r1[0]) / 25,
-      sG: (r2[1] - r1[1]) / 25,
-      Sb: (r2[2] - r1[2]) / 25,
-      startR: r1[0],
-      startG: r1[1],
-      startB: r1[2],
-    }
-    return obj;
-  }
-  //  内部文字
-  drawText(ctx, process) {
-    ctx.save();
-    ctx.rotate(210 * Math.PI / 180);
-    ctx.fillStyle = '#000';
-    ctx.font = '44px Microsoft yahei';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'top';
-    ctx.fillText(process, 0, 0);
-    let width = ctx.measureText(process).width;
-    ctx.fillStyle = '#000';
-    ctx.font = '20px Microsoft yahei';
-    ctx.fillText('分', width / 2 + 10, 20);
-    ctx.restore();
   }
   //  绘制外环刻度
   drawKedy(ctx) {
@@ -128,15 +87,17 @@ class Gauge {
     ctx.restore();
   }
   //  绘制内部点
-  drawPoin(ctx) {
+  drawPoin(ctx, colorLineNums) {
     const { lineNums } = this.properties;
     const { deg1 } = this;
+    let color = '';
     ctx.save();
     for(let i = 0; i <= lineNums / 10; i++) {
       ctx.beginPath();
       ctx.lineWidth = 2;
       ctx.arc(77, 0, 2, 0, 360, false);
       ctx.fillStyle = '#0A84FF';
+      // ctx.fillStyle = color;
       ctx.fill();
       ctx.rotate(deg1 * 10);
     }
@@ -160,9 +121,11 @@ class Gauge {
     ctx.rotate(deg);  //  旋转150°
     ctx.beginPath();
     ctx.moveTo(0, -4);
-    ctx.lineTo(0, 4);
-    ctx.lineTo(radius - 23, 1);
-    ctx.lineTo(radius - 23, -1);
+    ctx.bezierCurveTo(-4,-4,-4,4,0,4);
+    // ctx.lineTo(0, 4);
+    ctx.lineTo(radius - 30, 2);
+    ctx.bezierCurveTo(radius - 23,2,radius - 23,-2,radius - 30,-2);
+    // ctx.lineTo(radius - 23, -1);
     ctx.closePath();
     ctx.fillStyle = '#0A84FF';
     ctx.lineCap = 'round';
@@ -206,47 +169,53 @@ class Gauge {
     ctx.stroke();
     ctx.restore();
   }
-  //  初始化canvas
-  init() {
-    const that = this,
-          canvas = this.canvas,
-          ctx = canvas.getContext('2d'),
-          devicePixelRatio = window.devicePixelRatio || 1,
-          backingStoreRatio = ctx.webkitBackingStorePixelRatio || ctx.mozBackingStorePixelRatio || ctx.msBackingStorePixelRatio || ctx.oBackingStorePixelRatio || ctx.backingStorePixelRatio || 1,
-          ratio = devicePixelRatio / backingStoreRatio,
-          cWidth = canvas.width,
-          cHeight = canvas.height,
-          score = this.properties.score,
-          radius = this.properties.radius,
-          deg1 = this.deg1,
-          test = this.test,
-          colorLineNums = this.properties.score / this.maxVal * this.properties.lineNums;
-    //  监听
-    // that.vm = new Watcher({
-    //   data: {
-    //     score: 0
-    //   },
-    //   watch: {
-    //     score(newVal, oldVal) {
-    //       // requestAnimationFrame(that.drawClo(ctx, { score: newVal, radius, test }))
-    //       that.properties.score = newVal;
-    //       that.render(oldVal)
-    //     },
-    //   }
-    // })
-    //  静态样式
-    ctx.clearRect(0, 0, cWidth, cHeight);
-    ctx.scale(ratio, ratio);
-    //  设置画布
+  //  绘制文案
+  drawLabel(ctx) {
     ctx.save();
-    ctx.translate(cWidth / (2 * ratio), cHeight/ (2 * ratio));
-    ctx.rotate(150 * Math.PI / 180);  //  旋转150°
-    this.drawKedy(ctx);
-    this.drawNei(ctx);
-    this.drawPoin(ctx);
-    this.drawCli(ctx);
-    this.render();
+    ctx.rotate(210 * Math.PI / 180);
+    ctx.fillStyle = '#b2b2b2';
+    ctx.font = '14px Microsoft yahei';
+    ctx.textAlign = 'center';
+    ctx.fillText('功率', 0, 45);
+    ctx.restore();
   }
+  //  绘制圆角框
+  drawRound(ctx) {
+    const options = { x: -57, y: 60, w: 114, h: 50, r: 22.5 };
+    const { x, y, w, h, r } = options;
+    ctx.save();
+    ctx.beginPath();
+    ctx.rotate(210 * Math.PI / 180);
+    ctx.moveTo(x + r, y);
+    ctx.lineTo(x + w - r, y);
+    ctx.arc(x + w - r, y + r, r, Math.PI * 3 / 2, Math.PI * 2);
+    ctx.lineTo(x + w, y + h - r);
+    ctx.arc(x + w - r, y + h - r, r, Math.PI * 2, Math.PI / 2);
+    ctx.lineTo(x + r, y + h);
+    ctx.arc(x + r, y + h - r, r, Math.PI / 2, Math.PI);
+    ctx.lineTo(x, y + r);
+    ctx.arc(x + r, y + r, r, Math.PI, Math.PI * 3 / 2);
+    // ctx.fill();
+    ctx.closePath();
+    ctx.strokeStyle = '#212121';
+    ctx.stroke();
+    ctx.restore();
+  }
+  //  内部文字
+  drawText(ctx, process) {
+    ctx.save();
+    ctx.rotate(210 * Math.PI / 180);
+    ctx.fillStyle = '#fff';
+    ctx.font = '36px Microsoft yahei';
+    ctx.textAlign = 'center';
+    let width = ctx.measureText(process).width;
+    ctx.fillText(process, -5, 98);
+    ctx.fillStyle = '#fff';
+    ctx.font = '14px Microsoft yahei';
+    ctx.fillText('W', width / 2 + 5, 100);
+    ctx.restore();
+  }
+  //  执行
   start(oldVal) {
     const that = this;
     const { score, radius, lineNums } = this.properties;
@@ -284,7 +253,9 @@ class Gauge {
     const { deg1, test, maxVal } = this;
     const dotSpeed = 0.04;
     const textSpeed = Math.round(dotSpeed * 2 / deg1);
+    const val = cHeight/ratio/29.2;
     let credit = oldVal || 0;
+    // console.log(cHeight, ratio, cHeight/ratio, cHeight/ratio/29.2)
     ctx.scale(ratio, ratio);
     //  设置画布
     ctx.restore();
@@ -292,10 +263,13 @@ class Gauge {
     ctx.save();
     ctx.translate(cWidth / (2 * ratio), cHeight/ (2 * ratio));
     ctx.rotate(150 * Math.PI / 180);  //  旋转150°
-    this.drawKedy(ctx);
-    this.drawNei(ctx);
-    this.drawPoin(ctx);
-    this.drawCli(ctx);
+    that.drawKedy(ctx);
+    that.drawNei(ctx);
+    that.drawPoin(ctx, colorLineNums);
+    that.drawCli(ctx);
+    that.drawLabel(ctx);
+    that.drawRound(ctx);
+    that.drawText(ctx, credit, val);
     that.drawClo(ctx, { credit, radius, test });
     that.drawCurrent(ctx, { colorLineNums, deg1, radius });
     that.drawBg(ctx, { radius, score: credit, test });
@@ -320,10 +294,6 @@ class Gauge {
   }
   //  更新
   update(value) {
-    // vm.properties.score = value;
-    // this.start();
-    // window.cancelAnimationFrame(this.tirm);
-
     this.vm.score = value;
   }
 }
