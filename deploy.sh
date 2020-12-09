@@ -13,3 +13,4 @@ git commit -m "deploy"
 
 git push -f git@gitee.com:xianglacuixiaohuanxiong.git pro:gh-pages
 
+cd -
