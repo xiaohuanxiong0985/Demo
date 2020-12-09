@@ -11,6 +11,6 @@ cd dist
 git add -A
 git commit -m "deploy"
 
-git push -f git@gitee.com:xianglacuixiaohuanxiong.git master:gh-pages
+git push -f git@gitee.com:xianglacuixiaohuanxiong/xianglacuixiaohuanxiong.git master:gh-pages
 
 cd -
