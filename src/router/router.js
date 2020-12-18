@@ -112,9 +112,20 @@ export default [
     path: '/dashboard',
     component: () => import('@/views/bilibili/dashboard.vue')
   },
+  //  socket测试
+  {
+    path: '/socket',
+    component: () => import('../views/socket/index')
+  },
   {
     path: '/test',
-    component: () => import('../views/test')
+    component: () => import('../views/test'),
+    children: [
+      {
+        path: 'one',
+        component: () => import('../views/test/test1')
+      }
+    ]
   },
   {
     path: '*',

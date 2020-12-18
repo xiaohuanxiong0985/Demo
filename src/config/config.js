@@ -1,5 +1,5 @@
 module.exports = {
-  wsUrl: 'ws://121.40.165.18:8800',
+  wsUrl: 'ws://192.168.0.3:7979',
   title: '页面名称',
   //  代理配置
   proxy: {

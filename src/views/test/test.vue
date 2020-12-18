@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { observeSession } from '../utils/util';
+import { observeSession } from '../../utils/util';
 export default {
   name: 'test',
   data() {

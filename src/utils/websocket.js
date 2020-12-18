@@ -1,5 +1,7 @@
 import store from '@/store';
-const url = require('../config/index').wsUrl;
+// const url = require('../config').wsUrl;
+const url = 'ws://192.168.0.3:7979/myUrl'
+// const url = 'ws://121.40.165.18:8800';
 let wsConnection = {
   $ws: null,
   lockReturn: false,
@@ -12,7 +14,7 @@ let wsConnection = {
     if ('WebSocket' in window) {
       let corpId = localStorage.getItem('corpId');
       let name = localStorage.getItem('userName');
-      this.$ws = new WebSocket(url)
+      this.$ws = new WebSocket(url);
       this.$ws.onopen = this.wsOpen;
       this.$ws.onclose = this.wsClose;
       this.$ws.onmessage = this.wsMsg;
@@ -46,8 +48,8 @@ let wsConnection = {
   },
   //  错误
   wsError: function (err) {
-    console.log(`连接失败, ${err}`);
-    wsConnection.reconnect();
+    console.log(`连接失败, ${JSON.stringify(err)}`);
+    // wsConnection.reconnect();
   },
   //  重置方法
   reconnect () {
