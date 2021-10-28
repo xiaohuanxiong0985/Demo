@@ -1,6 +1,6 @@
 const path = require('path');
 const resolve = dir => path.resolve(__dirname, dir);
-const BASE_URL = process.env.NODE_ENV === 'production' ? '/' : '/';
+const BASE_URL = process.env.NODE_ENV === 'production' ? '/Demo' : '/';
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
 module.exports = {
   lintOnSave: false,
@@ -10,7 +10,7 @@ module.exports = {
     config.resolve.alias
       .set('@', resolve('src'))
       .set('components', resolve('src/components'))
-      .set('api', resolve('src/api'))
+      .set('api', resolve('src/api'));
   },
   productionSourceMap: false,
   devServer: {
