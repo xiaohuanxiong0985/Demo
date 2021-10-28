@@ -6,14 +6,13 @@
 
 <script>
 export default {
-  name: "index",
   props: {
     url: {
       type: String,
       default: '/'
-    },
+    }
   }
-}
+};
 </script>
 
 <style scoped lang="scss">

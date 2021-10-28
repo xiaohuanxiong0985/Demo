@@ -1,5 +1,5 @@
 import axios from 'axios';
-import store from '../store'
+import store from '../store';
 class Service {
   constructor () {
     this.baseUrl = process.env.VUE_APP_BASE_API;
@@ -8,7 +8,7 @@ class Service {
     const config = {
       baseURL: this.baseUrl,
       headers: {
-        'token': store.state.token || '',
+        'token': store.state.token || ''
       }
     };
     return config;
@@ -25,7 +25,7 @@ class Service {
     instance.interceptors.response.use(response => {
       //  通过http返回的状态码进行判断
       const res = response.data;
-      console.warn(res)
+      console.warn(res);
       if (response.status === 200) {
         return res;
       } else {

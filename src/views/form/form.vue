@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import myForm from 'components/form'
+import myForm from 'components/form';
 export default {
   components: {
     myForm
@@ -53,12 +53,12 @@ export default {
     handelClick1 () {
       this.$refs.form.validate(valid => {
         if (valid) {
-          console.log(`可以提交哦`)
+          console.log(`可以提交哦`);
         }
-      })
+      });
     },
     handelClick () {
-      this.$refs.form.handleReset()
+      this.$refs.form.handleReset();
     }
   }
 };

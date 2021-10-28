@@ -13,44 +13,44 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        value1: 0,
-        active: false,
-        process: 'animation-delay: -4.99s;',
-        imageBg: require('../../assets/img/img1.png'),
-        imagebg1: require('../../assets/img/img2.png'),
-        imageBg2: require('../../assets/img/img3.png')
+export default {
+  data () {
+    return {
+      value1: 0,
+      active: false,
+      process: 'animation-delay: -4.99s;',
+      imageBg: require('../../assets/img/img1.png'),
+      imagebg1: require('../../assets/img/img2.png'),
+      imageBg2: require('../../assets/img/img3.png')
+    };
+  },
+  mounted () {
+    this.handleClick();
+  },
+  methods: {
+    handleClick () {
+      const range = {
+        value: this.value1,
+        min: 0,
+        max: 100
+      };
+      const percent = ((range.value - range.min) / (range.max - range.min)) * 5;
+      const percentshow = Math.round(((range.value - range.min) / (range.max - range.min)) * 100);
+      console.log(percent);
+      if (percent < 5) {
+        this.process = `animation-delay: -${percent}s;`;
+      } else {
+        this.process = `animation-delay: 5s;`;
       }
-    },
-    mounted() {
+      // this.active = !this.active;
+    }
+  },
+  watch: {
+    value1 (val) {
       this.handleClick();
-    },
-    methods: {
-      handleClick() {
-        const range = {
-          value: this.value1,
-          min: 0,
-          max: 100
-        }
-        const percent = ((range.value - range.min) / (range.max - range.min)) * 5;
-        const percentshow = Math.round(((range.value - range.min) / (range.max - range.min)) * 100);
-        console.log(percent)
-        if (percent < 5) {
-          this.process = `animation-delay: -${percent}s;`
-        } else {
-          this.process = `animation-delay: 5s;`
-        }
-        // this.active = !this.active;
-      }
-    },
-    watch: {
-      value1(val) {
-        this.handleClick();
-      }
     }
   }
+};
 </script>
 
 <style scoped lang="scss">

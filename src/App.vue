@@ -10,19 +10,19 @@ export default {
   mixins: [resize], //  全局混入
   computed: {
     //  监听当前时间,改变模式
-    currentModa() {
-      return this.$store.state.app.currentModa
+    currentModa () {
+      return this.$store.state.app.currentModa;
     }
   },
-  mounted() {
-    console.log(this.currentMode())
+  mounted () {
+    console.log(this.currentMode());
   },
   methods: {
-    currentMode() {
-      if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        return 'dark'
+    currentMode () {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
       } else {
-        return 'light'
+        return 'light';
       }
     }
   }

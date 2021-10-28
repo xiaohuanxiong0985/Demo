@@ -46,7 +46,7 @@ export default [
       {
         path: 'demo5',
         component: () => import('../views/loading/demo5')
-      },
+      }
     ]
   },
   {
@@ -55,16 +55,20 @@ export default [
     children: [
       {
         path: 'demo1',
-        component: () => import('../views/background/demo1'),
+        component: () => import('../views/background/demo1')
       },
       {
         path: 'demo2',
-        component: () => import('../views/background/demo2'),
+        component: () => import('../views/background/demo2')
       },
       {
         path: 'demo3',
-        component: () => import('../views/background/demo3'),
+        component: () => import('../views/background/demo3')
       },
+      {
+        path: 'demo4',
+        component: () => import('../views/background/demo4')
+      }
     ]
   },
   {
@@ -72,21 +76,21 @@ export default [
     component: () => import('../views/index'),
     children: [
       { path: 'demo1', component: () => import('../views/button/demo1') },
-      { path: 'demo2', component: () => import('../views/button/demo2') },
+      { path: 'demo2', component: () => import('../views/button/demo2') }
     ]
   },
   {
     path: '/patterns',
     component: () => import('../views/index'),
     children: [
-      { path: 'demo1', component: () => import('../views/design_patterns/demo1/demo1.vue') },
+      { path: 'demo1', component: () => import('../views/design_patterns/demo1/demo1.vue') }
     ]
   },
   {
     path: '/canvas',
     component: () => import('../views/index'),
     children: [
-      { path: 'demo1', component: () => import('../views/canvas/demo1/demo1.vue') },
+      { path: 'demo1', component: () => import('../views/canvas/demo1/demo1.vue') }
     ]
   },
   {
@@ -98,19 +102,23 @@ export default [
   },
   {
     path: '/grid',
-    component: () => import('../views/grid')
+    component: () => import('../views/grid'),
+    meta: { title: 'grid布局' }
   },
   {
     path: '/bilibili',
-    component: () => import('@/views/bilibili/autumn')
+    component: () => import('@/views/bilibili/autumn'),
+    meta: { title: '哔哩哔哩头部动画' }
   },
   {
     path: '/mimicry',
-    component: () => import('@/views/bilibili/mimicry')
+    component: () => import('@/views/bilibili/mimicry'),
+    meta: { title: '拟态按钮' }
   },
   {
     path: '/dashboard',
-    component: () => import('@/views/bilibili/dashboard.vue')
+    component: () => import('@/views/bilibili/dashboard.vue'),
+    meta: { title: 'canvas绘制仪表盘' }
   },
   //  socket测试
   {
@@ -124,6 +132,10 @@ export default [
       {
         path: 'one',
         component: () => import('../views/test/test1')
+      },
+      {
+        path: 'two',
+        component: () => import('../views/test/test')
       }
     ]
   },

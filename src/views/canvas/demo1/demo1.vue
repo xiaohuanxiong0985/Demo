@@ -8,13 +8,13 @@
 import { demo1 } from './demo1';
 export default {
   name: 'demo1',
-  data() {
+  data () {
     return {
       Width: '',
       Height: ''
-    }
+    };
   },
-  mounted() {
+  mounted () {
     demo1();
   }
 };

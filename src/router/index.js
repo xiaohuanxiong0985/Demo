@@ -1,8 +1,15 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import routes from './router';
+import homeRoute from './router';
+import cartRoute from './cart';
 
 Vue.use(VueRouter);
+
+//  将路由拆分为各个小模块后合并引入
+const routes = [
+  ...homeRoute,
+  ...cartRoute
+];
 
 const router = new VueRouter({
   // mode: process.env.NODE_ENV === 'production' ? 'hash' : 'history',

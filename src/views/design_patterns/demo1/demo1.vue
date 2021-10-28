@@ -5,37 +5,37 @@
 </template>
 
 <script>
-import fn from './demo1'
+import fn from './demo1';
 export default {
   name: 'demo1',
-  data() {
+  data () {
     return {
-      nodes: '',
-    }
+      nodes: ''
+    };
   },
   mounted () {
-    fn.makeSound(new fn.Duck())
-    fn.makeSound(new fn.Chicken())
-    fn.makeSound(new fn.Dog())
-    fn.renderMap(fn.baiduMap)
-    console.log(fn.myObject().getName())
-    console.log(fn.myObject().__name) //  访问不到私有变量的,会出现undefined
-    console.log(fn.mult(1,2,3))
+    fn.makeSound(new fn.Duck());
+    fn.makeSound(new fn.Chicken());
+    fn.makeSound(new fn.Dog());
+    fn.renderMap(fn.baiduMap);
+    console.log(fn.myObject().getName());
+    console.log(fn.myObject().__name); //  访问不到私有变量的,会出现undefined
+    console.log(fn.mult(1, 2, 3));
   },
   methods: {
-    mult() {
+    mult () {
       let chche = {};
-      return function() {
+      return function () {
         const args = Array.prototype.join.call(arguments, ',');
         if (args in caches) {
-          return caches[args]
+          return caches[args];
         }
         let a = 1;
-        for(let i = 0, l = arguments.length; i < l; i++) {
+        for (let i = 0, l = arguments.length; i < l; i++) {
           a = a * arguments[i];
         }
         return caches[args] = a;
-      }
+      };
     }
   }
 };

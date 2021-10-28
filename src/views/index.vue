@@ -4,8 +4,8 @@
 
 <script>
 export default {
-  name: "index",  //  路由
-}
+  name: 'index' //  路由
+};
 </script>
 
 <style scoped>

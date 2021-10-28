@@ -1,59 +1,61 @@
 <template>
   <div class="page-main">
     <div class="row">
-      <xhx-button class="item" :type="'demo1'" :url="'/loading/demo1'">loading1</xhx-button>
-      <xhx-button class="item" :type="'demo1'" :url="'/loading/demo2'">loading2</xhx-button>
-      <xhx-button class="item" :type="'demo1'" :url="'/loading/demo3'">loading3</xhx-button>
-      <xhx-button class="item" :type="'demo1'" :url="'/loading/demo4'">loading4</xhx-button>
-      <xhx-button class="item" :type="'demo1'" :url="'/loading/demo5'">loading5</xhx-button>
+      <template v-for="(item, index) in loadingList">
+        <xhx-button class="item" :url="item.url" :key="index">{{ item.title }}</xhx-button>
+      </template>
+<!--      <xhx-button class="item" :url="'/loading/demo2'">loading2</xhx-button>-->
+<!--      <xhx-button class="item" :url="'/loading/demo3'">loading3</xhx-button>-->
+<!--      <xhx-button class="item" :url="'/loading/demo4'">loading4</xhx-button>-->
+<!--      <xhx-button class="item" :url="'/loading/demo5'">loading5</xhx-button>-->
     </div>
     <div class="row">
-      <xhx-button
-        class="item"
-        type="demo2"
-        title="渐变背景"
-        url="/background/demo1" />
-      <xhx-button
-        class="item"
-        type="demo2"
-        title="日环食"
-        colorType="orange"
-        url="/background/demo2" />
-      <xhx-button
-        class="item"
-        type="demo2"
-        title="视差滚动"
-        colorType="green"
-        url="/background/demo3" />
-      <xhx-button
-        class="item"
-        type="demo2"
-        title="哔哩哔哩"
-        colorType="red"
-        url="/bilibili" />
-      <xhx-button
-        class="item"
-        type="demo2"
-        title="仪表盘"
-        colorType="red"
-        url="/dashboard" />
+      <template v-for="(item, index) in effectList">
+        <xhx-button
+          class="item"
+          :key="index"
+          :type="item.type"
+          :color="item.color"
+          :url="item.url">
+          {{ item.title }}
+        </xhx-button>
+      </template>
     </div>
   </div>
 </template>
 
 <script>
-import xhxButton from './button/index'
+import xhxButton from './button/index';
 export default {
+  data () {
+    return {
+      loadingList: [
+        { title: '样式一', url: '/loading/demo1' },
+        { title: '样式二', url: '/loading/demo2' },
+        { title: '样式三', url: '/loading/demo3' },
+        { title: '样式四', url: '/loading/demo4' },
+        { title: '样式五', url: '/loading/demo5' }
+      ],
+      effectList: [
+        { title: '渐变背景', color: '#feca57', type: 'demo2', url: '/background/demo1' },
+        { title: '日环食', color: '#0abde3', type: 'demo2', url: '/background/demo2' },
+        { title: '视差滚动', color: '#54a0ff', type: 'demo2', url: '/background/demo4' },
+        { title: '哔哩哔哩', color: '#00d2d3', type: 'demo2', url: '/bilibili' },
+        { title: '仪表盘', color: '#c8d6e5', type: 'demo2', url: '/dashboard' },
+        { title: '购物清单', color: '#e74c3c', type: 'demo2', url: '/cart/demo1' }
+      ]
+    };
+  },
   components: {
     xhxButton
   },
-  mounted() {
+  mounted () {
     // console.log(this)
     // console.log($)
   },
   methods: {
   }
-}
+};
 </script>
 <style scoped lang="scss">
 .page-main {

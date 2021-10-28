@@ -7,31 +7,31 @@
 </template>
 
 <script>
-import { observeSession } from '../../utils/util';
+import { observeSession } from '@/utils/util';
 export default {
   name: 'test',
-  data() {
+  data () {
     return {
       text: ''
-    }
+    };
   },
   mounted () {
     //
   },
   methods: {
-    handleClick() {
+    handleClick () {
       const that = this;
       observeSession.on('success', () => {
-        that.text = '点击事件'
+        that.text = '点击事件';
       });
-      observeSession.emmit('success')
+      observeSession.emmit('success');
     },
     //  验证
-    test1() {
-      throw new Error('错误')
+    test1 () {
+      throw new Error('错误');
     },
     //  输入框
-    song() {
+    song () {
       //
     }
   }

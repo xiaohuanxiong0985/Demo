@@ -14,9 +14,9 @@ export default {
     // device() {
     //   return this.$store.state.app.device
     // },
-    currentTime() {
-      return this.$store.state.app.currentDate
-    },
+    currentTime () {
+      return this.$store.state.app.currentDate;
+    }
     // currentModa() {
     //   return this.$store.state.app.currentModa
     // }

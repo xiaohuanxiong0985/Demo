@@ -16,18 +16,18 @@
 
 <script>
 export default {
-  name: "demo3"
-}
+  //
+};
 </script>
 
 <style scoped lang="scss">
 .body {
   width: 100vw;
   height: 100vh;
-  perspective: 100px;
   transform-style: preserve-3d;
   overflow-y: auto;
   .main {
+    perspective: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,7 +39,7 @@ export default {
       align-items: center;
       justify-content: center;
       width: 100%;
-      height: 45vh;
+      height: 80vh;
       overflow: hidden;
       &:hover {
         .item-image {
@@ -67,7 +67,7 @@ export default {
           display: block;
           width: 100%;
           height: 100%;
-          object-fit: contain;
+          object-fit: cover;
         }
       }
       .item-text {

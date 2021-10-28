@@ -3,7 +3,7 @@
  *  option.color为颜色.值为rgb<br>
  *  option.number 建议最大值为500,最小200
  */
-export function demo1(option) {
+export function demo1 (option) {
   const color = option && option.color ? option.color : '0, 0, 0';
   let number = option && option.number ? option.number : 300;
   if (number > 500) number = 500;
@@ -15,28 +15,28 @@ export function demo1(option) {
   //  获取canvas大小信息 -> 全屏
   resize();
   window.onresize = resize;
-  function resize() {
+  function resize () {
     canvas.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-    canvas.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+    canvas.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
   }
   //
-  const RAF = (function() {
-    return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function(callback) {
+  const RAF = (function () {
+    return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (callback) {
       window.setTimeout(callback, 1000 / 60);
-    }
+    };
   })();
 
   //  定于鼠标移动时,获取鼠标坐标
   let warea = { x: null, y: null, max: 20000 };
-  window.onmousemove = function(e) {
+  window.onmousemove = function (e) {
     e = e || window.event;
     warea.x = e.clientX;
     warea.y = e.clientY;
   };
-  window.onmouseout = function(e) {
+  window.onmouseout = function (e) {
     warea.x = null;
     warea.y = null;
-  }
+  };
 
   //  首先定义分散在各个位置的粒子对象
   let dots = [];
@@ -47,17 +47,17 @@ export function demo1(option) {
     const ya = Math.random() * 2 - 1;
     dots.push({
       x, y, xa, ya, max: 6000
-    })
+    });
   }
 
   //  使用canvas动画函数来更新
-  function animate() {
-    requestAnimationFrame(animate)
+  function animate () {
+    requestAnimationFrame(animate);
   }
-  requestAnimationFrame(animate)
+  requestAnimationFrame(animate);
 
   //  每一帧的循环
-  function animate() {
+  function animate () {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     //  将鼠标坐标添加进去,产生一个用于对比距离的点数组
     const ndots = [warea].concat(dots);
@@ -93,7 +93,7 @@ export function demo1(option) {
           //  画线
           ctx.beginPath();
           ctx.lineWidth = ratio / 2;
-          ctx.strokeStyle = 'rgba('+ color + ',' + (ratio + 0.2) + ')';
+          ctx.strokeStyle = 'rgba(' + color + ',' + (ratio + 0.2) + ')';
           ctx.moveTo(dot.x, dot.y);
           ctx.lineTo(d2.x, d2.y);
           ctx.stroke();

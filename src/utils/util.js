@@ -26,28 +26,28 @@ export function GetDateTimeToString (date_, format) {
 
 //  对发布订阅模式进行封装
 class Observe {
-  constructor() {
-    this.events = {}
+  constructor () {
+    this.events = {};
   }
   //  订阅方法
-  on(key, cd) {
+  on (key, cd) {
     if (!this.events[key]) this.events[key] = [];
     this.events[key].push(cd);
   }
   //  发布方法
-  emmit(key, value) {
+  emmit (key, value) {
     if (this.events[key].length) {
-      const events = this.events[key]
-      events.forEach(v => v.call(this, value))
+      const events = this.events[key];
+      events.forEach(v => v.call(this, value));
     }
   }
   //  删除订阅者
-  remove(key) {
+  remove (key) {
     this.events.forEach(v => {
       if (v === key) {
-        delete this.events[v]
+        delete this.events[v];
       }
-    })
+    });
   }
 }
-export const observeSession = new Observe()
+export const observeSession = new Observe();
