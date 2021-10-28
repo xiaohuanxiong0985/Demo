@@ -13,7 +13,7 @@ git add -A
 git commit -m "部署"
 # 提交到指定分支
 git push -f git@gitee.com:xianglacuixiaohuanxiong/xianglacuixiaohuanxiong.git master:gh-pages
-# 删除包文件
-rm -rf dist
 # 返回到当前目录
 cd -
+# 删除包文件
+rm -rf dist
