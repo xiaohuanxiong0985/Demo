@@ -15,6 +15,13 @@ export default {
 };
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+.chrray-main {
+  width: 100vh;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 </style>
