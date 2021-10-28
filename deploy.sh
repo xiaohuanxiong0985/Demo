@@ -6,7 +6,8 @@ yarn build
 
 # 到构建的输出目录下
 cd dist
-
+# 创建仓库
+git init
 # 缓存所有东西
 git add -A
 # 提交信息
