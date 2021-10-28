@@ -17,7 +17,7 @@ export default {
 
 <style scoped lang="scss">
 .chrray-main {
-  width: 100vh;
+  width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
