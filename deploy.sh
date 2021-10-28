@@ -12,7 +12,7 @@ git add -A
 # 提交信息
 git commit -m "部署"
 # 提交到指定分支
-git push -f git@gitee.com:xianglacuixiaohuanxiong/xianglacuixiaohuanxiong.git master:gh-pages
+git push -f git@github.com:xiaohuanxiong0985/Demo.git master:gh-pages
 # 返回到当前目录
 cd -
 # 删除包文件
