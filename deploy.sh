@@ -7,10 +7,13 @@ yarn build
 # 到构建的输出目录下
 cd dist
 
-# 推送到指定分支
+# 缓存所有东西
 git add -A
-git commit -m "deploy"
-
+# 提交信息
+git commit -m "部署"
+# 提交到指定分支
 git push -f git@gitee.com:xianglacuixiaohuanxiong/xianglacuixiaohuanxiong.git master:gh-pages
-
+# 删除包文件
+rm -rf dist
+# 返回到当前目录
 cd -
