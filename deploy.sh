@@ -18,3 +18,5 @@ git push -f git@github.com:xiaohuanxiong0985/Demo.git master:gh-pages
 cd -
 # 删除包文件
 rm -rf dist
+
+echo '发布成功!'

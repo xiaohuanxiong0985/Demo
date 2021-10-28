@@ -1,7 +1,6 @@
 <template>
   <div class="chrray-main">
     <div>没有找到该页面哦~</div>
-    <img src="@/assets/img/img1.jpg" alt="头像1" class="el-avatar">
     <router-link to="/">返回首页</router-link>
   </div>
 </template>
