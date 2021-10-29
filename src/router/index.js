@@ -2,13 +2,15 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import homeRoute from './router';
 import cartRoute from './cart';
+import videoRoute from './video';
 
 Vue.use(VueRouter);
 
 //  将路由拆分为各个小模块后合并引入
 const routes = [
   ...homeRoute,
-  ...cartRoute
+  ...cartRoute,
+  ...videoRoute
 ];
 
 const router = new VueRouter({
