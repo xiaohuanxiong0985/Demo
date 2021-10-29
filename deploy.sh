@@ -1,5 +1,5 @@
 # 发生错误时终止
-set -e
+set -o errexit
 
 # 构建
 yarn build
