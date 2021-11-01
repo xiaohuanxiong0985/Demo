@@ -1,18 +1,24 @@
 <template>
-  <div class="container">
+  <router-link :to="url" class="container">
     <div class="box">
       <div class="img">
         <img src="@/assets/img/fingerprint.png" />
       </div>
-      <p>内容</p>
+      <slot>拟态按钮</slot>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script>
-  export default {
-    name: "mimicry"
+export default {
+  name: 'ButtonMimicry',
+  props: {
+    url: {
+      type: String,
+      default: '/'
+    }
   }
+};
 </script>
 
 <style scoped lang="scss">
@@ -24,6 +30,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  text-decoration: none;
+  color: #333;
   .box {
     display: flex;
     justify-content: space-around;

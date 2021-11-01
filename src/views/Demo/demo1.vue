@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import GetRand from '@/utils/getRand'
-import { prob } from 'api/user'
+// import GetRand from '@/utils/getRand';
+import { prob } from 'api/user';
 export default {
   data () {
     return {
@@ -19,7 +19,7 @@ export default {
         { name: '商品三', prob: 3 },
         { name: '商品四', prob: 4 },
         { name: '商品五', prob: 5 },
-        { name: '谢谢惠顾', prob: 95 },
+        { name: '谢谢惠顾', prob: 95 }
       ],
       goods: {},
       offOn: true,
@@ -56,11 +56,11 @@ export default {
           this.oTurntable.style.transition = `all 4s ease`;
           this.offOn = !this.offOn;
           prob().then(res => {
-            console.log(res)
+            console.log(res);
             this.ratating(res.data.id);
-          })
+          });
         }
-      }, 500)
+      }, 500);
     },
     ratating (id) {
       let that = this;
@@ -69,7 +69,7 @@ export default {
       this.timer = setInterval(_ => {
         if (Math.floor(rdm / 360 < 3)) {
           rdm = (360 * 5) + (51.4 * id - 25.7);
-          console.log(rdm)
+          console.log(rdm);
           // rdm = Math.floor(Math.random() * 3600);
         } else {
           that.oTurntable.style.transform = `rotate(${rdm}deg)`;
@@ -101,9 +101,9 @@ export default {
                 console.log(`rmd=${rdm}, num=${this.num}, 七等奖`);
                 break;
             }
-          }, 4000)
+          }, 4000);
         }
-      }, 30)
+      }, 30);
     }
   }
 };
@@ -119,7 +119,7 @@ export default {
     width: 650PX;
     height: 600PX;
     margin: 0 auto;
-    background: url("../assets/img/turntable-bg.jpg") no-repeat;
+    background: url("../../assets/img/turntable-bg.jpg") no-repeat;
     position: relative;
     .pointer {
       position: absolute;

@@ -6,12 +6,16 @@
     <demo2 v-if="type === 'demo2'" :colorType="colorType" :color="color" :url="url">
       <slot>按钮</slot>
     </demo2>
+    <demo3 v-if="type === 'demo3'" :colorType="colorType" :color="color" :url="url">
+      <slot>按钮</slot>
+    </demo3>
   </div>
 </template>
 
 <script>
 import demo1 from './demo1';
 import demo2 from './demo2';
+import demo3 from './demo3';
 export default {
   props: {
     url: {
@@ -33,7 +37,8 @@ export default {
   },
   components: {
     demo1,
-    demo2
+    demo2,
+    demo3
   }
 };
 </script>

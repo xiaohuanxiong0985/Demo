@@ -1,35 +1,34 @@
 //  监听数据变化
 class Watcher {
-  constructor(opts) {
+  constructor (opts) {
     this.$data = this.getBaseType(opts.data) === 'Object' ? opts.data : {};
     this.$watch = this.getBaseType(opts.watch) === 'Object' ? opts.watch : {};
-    for(let key in opts.data) {
-      this.setData(key)
+    for (let key in opts.data) {
+      this.setData(key);
     }
   }
-  getBaseType(target) {
+  getBaseType (target) {
     const typeStr = Object.prototype.toString.apply(target);
     return typeStr.slice(8, -1);
   }
-  setData(_key) {
-    Object.defineProperty(this,_key, {
-      get() {
+  setData (_key) {
+    Object.defineProperty(this, _key, {
+      get () {
         return this.$data[_key];
       },
-      set(val) {
+      set (val) {
         const oldVal = this.$data[_key];
         if (oldVal === val) return val;
         this.$data[_key] = val;
-        this.$watch[_key] && typeof  this.$watch[_key] === 'function' && (this.$watch[_key].call(this, val, oldVal));
+        this.$watch[_key] && typeof this.$watch[_key] === 'function' && (this.$watch[_key].call(this, val, oldVal));
         return val;
       }
-    })
+    });
   }
 }
 
-
 class Gauge {
-  constructor(options) {
+  constructor (options) {
     this.properties = {
       canvas: null,
       percent: 0,
@@ -37,9 +36,9 @@ class Gauge {
       radius: 146,
       lineNums: 80,
       totalScore: 100,
-      color: [[54, 63, 255], [134, 37, 168],[252, 3, 44]],
-      options: 0.6,
-    }
+      color: [[54, 63, 255], [134, 37, 168], [252, 3, 44]],
+      options: 0.6
+    };
     this.tirm = null;
     this.maxVal = 100;
     this.canvas = options.canvas;
@@ -50,12 +49,12 @@ class Gauge {
     return this;
   }
   //  绘制外环刻度
-  drawKedy(ctx) {
-    const { lineNums, radius,  } = this.properties;
+  drawKedy (ctx) {
+    const { lineNums, radius } = this.properties;
     const { deg1 } = this;
     ctx.save();
-    for(let i = 0; i <= lineNums; i++) {
-      if (i % 10 ) {
+    for (let i = 0; i <= lineNums; i++) {
+      if (i % 10) {
         ctx.beginPath();
         ctx.lineWidth = 1;
         ctx.strokeStyle = '#464646';
@@ -76,23 +75,23 @@ class Gauge {
     ctx.restore();
   }
   //  绘制内部环线
-  drawNei(ctx) {
+  drawNei (ctx) {
     const { radius } = this.properties;
     ctx.save();
     ctx.beginPath();
     ctx.lineWidth = 1;
     ctx.strokeStyle = '#212121';
-    ctx.arc(0, 0, radius - 51, 0, 1.33*Math.PI, false);
+    ctx.arc(0, 0, radius - 51, 0, 1.33 * Math.PI, false);
     ctx.stroke();
     ctx.restore();
   }
   //  绘制内部点
-  drawPoin(ctx, colorLineNums) {
+  drawPoin (ctx, colorLineNums) {
     const { lineNums } = this.properties;
     const { deg1 } = this;
     let color = '';
     ctx.save();
-    for(let i = 0; i <= lineNums / 10; i++) {
+    for (let i = 0; i <= lineNums / 10; i++) {
       ctx.beginPath();
       ctx.lineWidth = 2;
       ctx.arc(77, 0, 2, 0, 360, false);
@@ -104,7 +103,7 @@ class Gauge {
     ctx.restore();
   }
   //  绘制中心圆
-  drawCli(ctx) {
+  drawCli (ctx) {
     ctx.save();
     ctx.beginPath();
     ctx.lineWidth = 1;
@@ -114,17 +113,17 @@ class Gauge {
     ctx.restore();
   }
   //  绘制指针
-  drawClo(ctx, options) {
+  drawClo (ctx, options) {
     const { credit, radius, test } = options;
     const deg = credit * test * Math.PI / 180;
     ctx.save();
-    ctx.rotate(deg);  //  旋转150°
+    ctx.rotate(deg); //  旋转150°
     ctx.beginPath();
     ctx.moveTo(0, -4);
-    ctx.bezierCurveTo(-4,-4,-4,4,0,4);
+    ctx.bezierCurveTo(-4, -4, -4, 4, 0, 4);
     // ctx.lineTo(0, 4);
     ctx.lineTo(radius - 30, 2);
-    ctx.bezierCurveTo(radius - 23,2,radius - 23,-2,radius - 30,-2);
+    ctx.bezierCurveTo(radius - 23, 2, radius - 23, -2, radius - 30, -2);
     // ctx.lineTo(radius - 23, -1);
     ctx.closePath();
     ctx.fillStyle = '#0A84FF';
@@ -133,11 +132,11 @@ class Gauge {
     ctx.restore();
   }
   //  绘制当前进度
-  drawCurrent(ctx, options) {
+  drawCurrent (ctx, options) {
     const { colorLineNums, radius, deg1 } = options;
     ctx.save();
-    for(let i = 0; i <= colorLineNums; i++) {
-      if (i % 10 ) {
+    for (let i = 0; i <= colorLineNums; i++) {
+      if (i % 10) {
         ctx.beginPath();
         ctx.lineWidth = 1;
         ctx.strokeStyle = '#0A84FF';
@@ -158,19 +157,19 @@ class Gauge {
     ctx.restore();
   }
   //  绘制背景
-  drawBg(ctx, options) {
+  drawBg (ctx, options) {
     const { score, test, radius } = options;
-    const deg = (score * test ) * Math.PI / 180;
+    const deg = (score * test) * Math.PI / 180;
     ctx.save();
     ctx.beginPath();
     ctx.lineWidth = 50;
     ctx.strokeStyle = 'rgba(10, 132, 255, .1)';
-    ctx.arc(0, 0, radius- 25, 0, deg, false);
+    ctx.arc(0, 0, radius - 25, 0, deg, false);
     ctx.stroke();
     ctx.restore();
   }
   //  绘制文案
-  drawLabel(ctx) {
+  drawLabel (ctx) {
     ctx.save();
     ctx.rotate(210 * Math.PI / 180);
     ctx.fillStyle = '#b2b2b2';
@@ -180,7 +179,7 @@ class Gauge {
     ctx.restore();
   }
   //  绘制圆角框
-  drawRound(ctx) {
+  drawRound (ctx) {
     const options = { x: -57, y: 60, w: 114, h: 50, r: 22.5 };
     const { x, y, w, h, r } = options;
     ctx.save();
@@ -202,7 +201,7 @@ class Gauge {
     ctx.restore();
   }
   //  内部文字
-  drawText(ctx, process) {
+  drawText (ctx, process) {
     ctx.save();
     ctx.rotate(210 * Math.PI / 180);
     ctx.fillStyle = '#fff';
@@ -216,7 +215,7 @@ class Gauge {
     ctx.restore();
   }
   //  执行
-  start(oldVal) {
+  start (oldVal) {
     const that = this;
     const { score, radius, lineNums } = this.properties;
     const { deg1, test, maxVal } = this;
@@ -224,7 +223,7 @@ class Gauge {
     const textSpeed = Math.round(dotSpeed * 2 / deg1);
     let credit = oldVal || 0;
     let colorLineNums = 0;
-    const updatas = function() {
+    const updatas = function () {
       if (credit < score - textSpeed) {
         credit += textSpeed;
         colorLineNums = credit / maxVal * lineNums;
@@ -235,12 +234,12 @@ class Gauge {
         credit -= 1;
         colorLineNums = credit / maxVal * lineNums;
       }
-      that.render(credit, colorLineNums)
-      window.requestAnimationFrame(updatas)
-    }
-    window.requestAnimationFrame(updatas)
+      that.render(credit, colorLineNums);
+      window.requestAnimationFrame(updatas);
+    };
+    window.requestAnimationFrame(updatas);
   }
-  render(oldVal, colorLineNums) {
+  render (oldVal, colorLineNums) {
     const that = this;
     const canvas = this.canvas;
     const cWidth = canvas.width;
@@ -253,7 +252,7 @@ class Gauge {
     const { deg1, test, maxVal } = this;
     const dotSpeed = 0.04;
     const textSpeed = Math.round(dotSpeed * 2 / deg1);
-    const val = cHeight/ratio/29.2;
+    const val = cHeight / ratio / 29.2;
     let credit = oldVal || 0;
     // console.log(cHeight, ratio, cHeight/ratio, cHeight/ratio/29.2)
     ctx.scale(ratio, ratio);
@@ -261,8 +260,8 @@ class Gauge {
     ctx.restore();
     ctx.clearRect(0, 0, cWidth, cHeight);
     ctx.save();
-    ctx.translate(cWidth / (2 * ratio), cHeight/ (2 * ratio));
-    ctx.rotate(150 * Math.PI / 180);  //  旋转150°
+    ctx.translate(cWidth / (2 * ratio), cHeight / (2 * ratio));
+    ctx.rotate(150 * Math.PI / 180); //  旋转150°
     that.drawKedy(ctx);
     that.drawNei(ctx);
     that.drawPoin(ctx, colorLineNums);
@@ -277,25 +276,25 @@ class Gauge {
     // window.requestAnimationFrame(drawFrame)
   }
   //  监听器
-  watchs() {
+  watchs () {
     const that = this;
     that.vm = new Watcher({
       data: {
         score: 0
       },
       watch: {
-        score(newVal, oldVal) {
+        score (newVal, oldVal) {
           // requestAnimationFrame(that.drawClo(ctx, { score: newVal, radius, test }))
           that.properties.score = newVal;
-          that.start(oldVal)
-        },
+          that.start(oldVal);
+        }
       }
-    })
+    });
   }
   //  更新
-  update(value) {
+  update (value) {
     this.vm.score = value;
   }
 }
 
-export default Gauge
+export default Gauge;

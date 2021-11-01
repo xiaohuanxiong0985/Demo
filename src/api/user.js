@@ -1,5 +1,5 @@
 import { axios } from './index';
-import qs from 'qs'
+import qs from 'qs';
 export function login (data) {
   return axios.request({
     url: `user/login`,
@@ -17,5 +17,5 @@ export function prob (params) {
   return axios.request({
     url: `prob`,
     params
-  })
+  });
 }

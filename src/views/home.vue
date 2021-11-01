@@ -4,13 +4,21 @@
       <template v-for="(item, index) in loadingList">
         <xhx-button class="item" :url="item.url" :key="index">{{ item.title }}</xhx-button>
       </template>
-<!--      <xhx-button class="item" :url="'/loading/demo2'">loading2</xhx-button>-->
-<!--      <xhx-button class="item" :url="'/loading/demo3'">loading3</xhx-button>-->
-<!--      <xhx-button class="item" :url="'/loading/demo4'">loading4</xhx-button>-->
-<!--      <xhx-button class="item" :url="'/loading/demo5'">loading5</xhx-button>-->
     </div>
     <div class="row">
       <template v-for="(item, index) in effectList">
+        <xhx-button
+          class="item"
+          :key="index"
+          :type="item.type"
+          :color="item.color"
+          :url="item.url">
+          {{ item.title }}
+        </xhx-button>
+      </template>
+    </div>
+    <div class="row">
+      <template v-for="(item, index) in canvasList">
         <xhx-button
           class="item"
           :key="index"
@@ -40,9 +48,14 @@ export default {
         { title: '渐变背景', color: '#feca57', type: 'demo2', url: '/background/demo1' },
         { title: '日环食', color: '#0abde3', type: 'demo2', url: '/background/demo2' },
         { title: '视差滚动', color: '#54a0ff', type: 'demo2', url: '/background/demo4' },
-        { title: '哔哩哔哩', color: '#00d2d3', type: 'demo2', url: '/bilibili' },
-        { title: '仪表盘', color: '#c8d6e5', type: 'demo2', url: '/dashboard' },
-        { title: '购物清单', color: '#e74c3c', type: 'demo2', url: '/cart/demo1' }
+        { title: '哔哩哔哩', color: '#00d2d3', type: 'demo2', url: '/background/demo5' }
+        // { title: '仪表盘', color: '#c8d6e5', type: 'demo2', url: '/dashboard' },
+        // { title: '购物清单', color: '#e74c3c', type: 'demo2', url: '/cart/demo1' }
+      ],
+      canvasList: [
+        { title: 'canvas动画', color: '#0abde3', type: 'demo3', url: '/canvas/demo1' },
+        { title: '根据图片变色', color: '#0abde3', type: 'demo3', url: '/canvas/demo2' },
+        { title: 'canvas仪表盘', color: '#0abde3', type: 'demo3', url: '/canvas/demo3' }
       ]
     };
   },
